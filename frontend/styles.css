@@ -1,0 +1,354 @@
+/* =========================================================
+   Lunori UI — dark theme base styles
+   ========================================================= */
+
+/* Global type & page base */
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 0;
+  background-color: #0b0b0c;
+  color: #e8e8ea;
+}
+
+/* Top bar */
+.topbar {
+  padding: 16px 20px;
+  border-bottom: 1px solid #222222;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Streak badge in header */
+.streak-badge {
+  margin-left: auto;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #2b2b2e;
+  background: #141416;
+  color: #e8e8ea;
+}
+
+/* Layout container */
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* Controls row (record/upload/history/model/save) */
+.controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* Generic button */
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #2b2b2e;
+  background-color: #141416;
+  color: #e8e8ea;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1a1b1e;
+}
+
+/* Destructive action button */
+.btn-danger {
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid #3a2323;
+  background: #2a1414;
+  color: #ffbdbd;
+}
+
+.btn-danger:hover { background: #371919; }
+
+/* Generic content box */
+.box {
+  border: 1px solid #2b2b2e;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #111111;
+  min-height: 140px;
+  white-space: pre-wrap;
+}
+
+/* Footer */
+.footer {
+  opacity: 0.7;
+  text-align: center;
+  padding: 20px 0 40px;
+}
+
+/* ================= History panel ================= */
+.history { margin-top: 28px; }
+.is-hidden { display: none; }
+
+.list { list-style: none; margin: 0; padding-left: 0; }
+.list-item { margin-bottom: 8px; }
+
+/* Reusable “button” look for list rows and links */
+.btn {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #2b2b2e;
+  background: #141416;
+  color: #e8e8ea;
+  cursor: pointer;
+}
+
+.btn:hover { background: #1a1b1e; }
+.btn-block { display: block; width: 100%; text-align: left; }
+
+/* Small badge used near live state */
+.live-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #1a1b1e;
+  border: 1px solid #2b2b2e;
+  font-size: 12px;
+  margin-left: 8px;
+  opacity: 0.9;
+}
+
+/* Status lines under section titles */
+.status { opacity: 0.8; margin-bottom: 8px; font-size: 14px; }
+
+/* Transcript editor focus styling */
+.box[contenteditable="true"] { outline: 1px solid #2b2b2e; min-height: 160px; }
+.box[contenteditable="true"]:focus {
+  outline: 1px solid #3b3b3f;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+}
+
+/* Audio player layout */
+#audioContainer { margin-top: 12px; }
+#audioContainer audio { width: 100%; }
+
+/* ================= Mood row ================= */
+.mood-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 10px;
+}
+
+.mood-badge {
+  display: inline-block;
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #2b2b2e;
+  background: #141416;
+  color: #e8e8ea;
+  min-width: 86px;
+  text-align: center;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.chip {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid #2b2b2e;
+  background: #111111;
+  opacity: 0.95;
+}
+
+/* ================= Dashboard (weekly summary) ================= */
+.dashboard { margin-top: 20px; }
+
+.dash-card {
+  border: 1px solid #2b2b2e;
+  border-radius: 12px;
+  padding: 12px;
+  background: #0f0f10;
+}
+
+.dash-row { display: flex; gap: 8px; align-items: baseline; margin-bottom: 8px; }
+.dash-row .muted { opacity: 0.7; font-size: 13px; }
+.counts { font-size: 13px; }
+.spark-wrap { height: 44px; }
+
+/* ================= Search input (history) ================= */
+.search-wrap { margin: 8px 0 12px; }
+
+.search {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2b2b2e;
+  background: #111111;
+  color: #e8e8ea;
+}
+
+.search::placeholder { color: #8a8a8a; }
+
+/* ================= Details toggle under transcript ================= */
+.details-row { margin-top: 10px; }
+
+.linklike {
+  background: transparent;
+  border: none;
+  color: #a8d1ff;
+  padding: 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.linklike:hover { text-decoration: underline; }
+.linklike:disabled { opacity: 0.6; cursor: not-allowed; text-decoration: none; }
+
+/* ================= Character-count note under editor ================= */
+.char-note-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin: 8px 2px 4px;
+}
+
+.char-note { font-size: 12px; opacity: 0.75; }
+
+.char-count { font-size: 12px; opacity: 0.9; }
+.char-count.warn { color: #ffb6b6; font-weight: 600; }
+
+/* Responsive sparkline canvas */
+.spark-wrap canvas {
+  width: 100%;
+  height: 44px;
+  display: block;
+}
+
+/* Inline label and compact select in controls bar */
+.inline-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  opacity: 0.9;
+  cursor: default;
+}
+
+.compact-select {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #2b2b2e;
+  background: #111111;
+  color: #e8e8ea;
+  -webkit-appearance: none;
+  appearance: none;
+  line-height: 1.2;
+}
+
+.compact-select:disabled { opacity: 0.6; cursor: not-allowed; }
+.compact-select:focus {
+  outline: 1px solid #3b3b3f;
+  box-shadow: 0 0 0 3px rgba(168, 209, 255, 0.12);
+}
+
+/* ================= Images UI (attach to entry) ================= */
+.images-section { margin-top: 12px; }
+.images-controls { display: flex; gap: 8px; align-items: center; margin: 8px 2px; }
+.images-controls .muted { opacity: 0.7; font-size: 12px; }
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 10px;
+}
+
+.image-card {
+  border: 1px solid #2b2b2e;
+  background: #0f0f10;
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.image-card img {
+  width: 100%;
+  height: 82px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.image-meta { display: flex; flex-wrap: wrap; gap: 4px; }
+
+.tag {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid #2b2b2e;
+  background: #111111;
+  opacity: 0.95;
+}
+
+.remove-btn {
+  align-self: flex-end;
+  font-size: 11px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #3a2323;
+  background: #2a1414;
+  color: #ffbdbd;
+}
+
+.remove-btn:hover { background: #371919; }
+
+/* ================= Native file input skin =================
+   If the file input is visible (older layout), this matches the .btn style.
+   In the current layout we hide the input and trigger it via a <label class="btn">. */
+input[type="file"] {
+  font-size: 13px;
+  color: #8a8a8a;
+  background: transparent;
+  border: none;
+}
+
+/* Chromium/Electron, Edge */
+input[type="file"]::file-selector-button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #2b2b2e;
+  background-color: #141416;
+  color: #e8e8ea;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color .15s ease;
+}
+
+input[type="file"]::file-selector-button:hover { background-color: #1a1b1e; }
+
+/* Legacy WebKit */
+input[type="file"]::-webkit-file-upload-button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #2b2b2e;
+  background-color: #141416;
+  color: #e8e8ea;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover { background-color: #1a1b1e; }
+
+/* Accent for informational status text */
+.status.notice { color: #a8d1ff; }

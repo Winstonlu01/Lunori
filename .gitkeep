@@ -1,0 +1,7 @@
+data/
+  .gitkeep
+  audio/.gitkeep
+  raw_audio/.gitkeep
+  sessions/.gitkeep
+  entries/.gitkeep
+  images/.gitkeep

@@ -1,0 +1,76 @@
+################################
+# OS cruft
+################################
+.DS_Store
+Thumbs.db
+desktop.ini
+
+################################
+# Python / FastAPI backend
+################################
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dylib
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.cache/
+*.dist-info/
+.env
+.env.*
+
+# Uvicorn/run logs (if any)
+*.log
+
+################################
+# Node / Electron / Frontend
+################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build artifacts
+dist/
+out/
+release/
+build/
+electron/dist/
+electron/out/
+electron/release/
+electron/build/
+
+################################
+# IDE / Editor
+################################
+.vscode/
+.idea/
+*.iml
+
+################################
+# App runtime state
+################################
+# Per-user config written at runtime
+config.json
+
+# Local data produced by the app
+# (keep folders, ignore contents)
+data/**
+!data/**/.gitkeep
+
+# If you keep screenshots for docs, feel free to ignore:
+# screenshots/
+
+################################
+# Misc
+################################
+# Python bytecode in any submodules
+**/__pycache__/
+**/*.py[cod]

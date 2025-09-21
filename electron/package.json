@@ -1,0 +1,17 @@
+{
+  "name": "lunori-electron",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+"scripts": {
+  "dev": "concurrently -k -n API,APP -c blue,magenta \"npm:backend\" \"npm:electron\"",
+  "backend": "cross-env PYTHONUNBUFFERED=1 python -m uvicorn backend.app:app --app-dir .. --host 127.0.0.1 --port 8001 --log-level info",
+  "electron": "wait-on http-get://127.0.0.1:8001/health && electron ."
+},
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "latest",
+    "wait-on": "^7.0.1"
+  }
+}

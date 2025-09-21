@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lunori — Journaling</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Lunori</h1>
+    <!-- Streak badge (JS updates/ hides if unused) -->
+    <span id="streakBadge" class="streak-badge" title="Counts days with entries; resets after 2 missed days">🔥 0-day streak</span>
+  </header>
+
+  <main class="container">
+
+    <!-- Primary controls -->
+    <section class="controls" aria-label="Recording and file controls">
+      <button id="recordBtn" type="button">● Record</button>
+
+      <!-- Hidden file input + styled label for consistent button look -->
+      <input id="fileInput" type="file" accept=".wav,.mp3" style="display:none" />
+      <label for="fileInput" class="btn" role="button" tabindex="0" title="Select a .wav or .mp3 from your computer">Choose audio</label>
+
+      <button id="uploadBtn" type="button">Upload</button>
+      <button id="historyBtn" type="button">History</button>
+
+      <!-- Whisper model selector -->
+      <label class="inline-label" title="Bigger models = better accuracy, slower on CPU">
+        Model:
+        <select id="modelSelect" class="compact-select" aria-label="ASR model">
+          <option value="tiny">tiny</option>
+          <option value="base.en">base.en</option>
+          <option value="small.en" selected>small.en</option>
+          <option value="medium.en">medium.en</option>
+        </select>
+      </label>
+
+      <button id="saveBtn" type="button">💾 Save</button>
+      <span id="saveStatus" class="status" aria-live="polite"></span>
+    </section>
+
+    <!-- Live transcript area -->
+    <section class="transcript" aria-label="Live or latest transcript">
+      <h2>Live / Latest Transcript</h2>
+      <div id="statusLine" class="status" aria-live="polite"></div>
+
+      <div id="moodRow" class="mood-row is-hidden">
+        <span id="moodBadge" class="mood-badge">Mood: 0</span>
+        <div id="emoChips" class="chips" aria-label="Top emotions"></div>
+      </div>
+
+      <!-- Editable transcript box (analyzed locally) -->
+      <div
+        id="transcriptBox"
+        class="box"
+        contenteditable="true"
+        spellcheck="true"
+        role="textbox"
+        aria-multiline="true"
+        aria-label="Transcript editor"
+      >Say something or upload an audio file…</div>
+
+      <!-- Emotion details (collapsed by default) -->
+      <div class="details-row">
+        <button id="detailsToggle" class="linklike" type="button">Show details</button>
+      </div>
+      <div id="emotionDetails" class="box is-hidden" aria-live="polite"></div>
+
+      <!-- Playback of saved/processed audio -->
+      <div id="audioContainer" aria-label="Audio player"></div>
+
+      <!-- Image uploader & preview for this entry -->
+      <div class="images-section" aria-label="Attached images">
+        <div class="images-controls">
+          <!-- Hidden input for multiple images; JS will click it -->
+          <input id="imageInput" type="file" accept="image/*" multiple style="display:none" />
+          <button id="imageUploadBtn" type="button" class="btn">➕ Add images</button>
+          <small class="muted">JPG, PNG, or WebP. Auto-captioned and tagged locally.</small>
+        </div>
+        <!-- Preview grid of images attached to the CURRENT entry before save() -->
+        <div id="imagePreview" class="box is-empty" aria-live="polite"></div>
+      </div>
+
+    </section>
+
+    <!-- Small dashboard -->
+    <section class="dashboard" aria-label="Weekly mood summary">
+      <h2>Weekly Mood Summary</h2>
+      <div id="dashContainer" class="dash-card">
+        <div class="dash-row">
+          <span class="muted">Top-1 counts (last 7 days):</span>
+          <span id="top1Counts" class="counts"></span>
+        </div>
+        <div class="spark-wrap">
+          <canvas id="trendSpark" width="300" height="44" aria-label="Mood trend sparkline"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- History panel -->
+    <section class="history" aria-label="Saved entries">
+      <h2>History</h2>
+
+      <!-- Text search across transcripts and image tags -->
+      <div class="search-wrap">
+        <input id="searchInput" type="search" class="search" placeholder="Search entries… (matches text or image tags)" aria-label="Search history" />
+      </div>
+
+      <!-- Image gallery for a selected entry (if you choose to render here) -->
+      <div id="imageGallery" class="box is-hidden"></div>
+
+      <!-- History list container (lazy-loaded) -->
+      <div id="historyPanel" class="box is-hidden" aria-live="polite">
+        Click “History” to load your saved entries…
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Local-first. Your data stays on your machine.</small>
+  </footer>
+
+  <noscript>
+    <div class="box" style="margin:1rem">This app requires JavaScript to run.</div>
+  </noscript>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
